@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amy Lee Projects</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Amy Lee</h1>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni maxime
+        modi quo, ratione nemo repellat, aliquid velit sed, suscipit magnam
+        architecto iusto blanditiis. Praesentium, facere. Sapiente praesentium
+        laboriosam dolores assumenda?
+      </p>
+    </header>
+    <section>
+      <h2>Professional</h2>
+      {%- for post in collections.professional -%}
+      <h2>{{ post.data.title }}</h2>
+      {% if post.data.video_url %}
+      <div>{{ post.data.video_url }}</div>
+      {% endif %}
+      <div>{{ post.data.playlist_id }}</div>
+      <div>{{ post.templateContent }}</div>
+      {%- endfor -%}
+    </section>
+    <section>
+      <h2>Personal</h2>
+      {%- for post in collections.personal -%}
+      <h2>{{ post.data.title }}</h2>
+      {% if post.data.video_url %}
+      <div>{{ post.data.video_url }}</div>
+      {% endif %}
+      <div>{{ post.data.playlist_id }}</div>
+      <div>{{ post.templateContent }}</div>
+      {%- endfor -%}
+    </section>
+  </body>
+</html>
