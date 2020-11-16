@@ -13,35 +13,55 @@
   </head>
   <body>
     <header>
-      <h1>Amy Lee</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni maxime
-        modi quo, ratione nemo repellat, aliquid velit sed, suscipit magnam
-        architecto iusto blanditiis. Praesentium, facere. Sapiente praesentium
-        laboriosam dolores assumenda?
-      </p>
+      <section class="header__title">
+        <h1>Amy Lee</h1>
+        <h2>Audio Producer</h2>
+      </section>
+      <section class="header__contact">
+        <p><a href="mailto:amylee4@gmail.com">amylee4@gmail.com</a></p>
+        <p><a href="tel:amylee4@gmail.com">123456 456</a></p>
+      </section>
     </header>
-    <section>
-      <h2>Professional</h2>
-      {%- for post in collections.professional -%}
-      <h2>{{ post.data.title }}</h2>
-      {% if post.data.video_url %}
-      <div>{{ post.data.video_url }}</div>
-      {% endif %}
-      <div>{{ post.data.playlist_id }}</div>
-      <div>{{ post.templateContent }}</div>
-      {%- endfor -%}
-    </section>
-    <section>
-      <h2>Personal</h2>
-      {%- for post in collections.personal -%}
-      <h2>{{ post.data.title }}</h2>
-      {% if post.data.video_url %}
-      <div>{{ post.data.video_url }}</div>
-      {% endif %}
-      <div>{{ post.data.playlist_id }}</div>
-      <div>{{ post.templateContent }}</div>
-      {%- endfor -%}
-    </section>
+    <main>
+      <section>
+        <h2>Professional</h2>
+        {%- for post in collections.professional -%}
+        <h2>{{ post.data.title }}</h2>
+        {% if post.data.video_id %}
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/{{ post.data.video_id }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          origin="http://localhost:8080/"
+        ></iframe>
+        {% endif %}
+        <div>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/{{ post.data.playlist_id }}"
+            width="300"
+            height="380"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media"
+          ></iframe>
+        </div>
+        <div>{{ post.templateContent }}</div>
+        {%- endfor -%}
+      </section>
+      <section>
+        <h2>Personal</h2>
+        {%- for post in collections.personal -%}
+        <h2>{{ post.data.title }}</h2>
+        {% if post.data.video_id %}
+        <div>{{ post.data.video_id }}</div>
+        {% endif %}
+        <div>{{ post.data.playlist_id }}</div>
+        <div>{{ post.templateContent }}</div>
+        {%- endfor -%}
+      </section>
+    </main>
   </body>
 </html>

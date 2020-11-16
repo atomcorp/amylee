@@ -1,8 +1,8 @@
 ---
 tags: professional
 title: Louis Vuitton
-video_url: https://youtu.be/SVM872lO6vk
-playlist_id: spotifylink
+video_id: SVM872lO6vk
+playlist_id: 2ltkayh4N3KJOoXuDULE5g
 ---
 
 Some stuff about Louis Vuitton
