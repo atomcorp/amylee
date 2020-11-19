@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx @11ty/eleventy --input=src --formats=html,md,css --serve"
+    "start": "npx @11ty/eleventy --input=src --serve"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1"
-  }
+  },
+  "dependencies": {}
 }

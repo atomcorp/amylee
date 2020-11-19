@@ -12,34 +12,27 @@
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
-    <header>
+    <header class="header">
       <section class="header__title">
-        <h1>Amy Lee</h1>
-        <h2>Audio Producer</h2>
+        <h1 class="header__name">Amy Lee</h1>
+        <h2 class="header__roles">Audio Producer | Cutey</h2>
       </section>
-      <section class="header__contact">
-        <p><a href="mailto:amylee4@gmail.com">amylee4@gmail.com</a></p>
-        <p><a href="tel:amylee4@gmail.com">123456 456</a></p>
+      <section class="header__contacts">
+        <a href="mailto:amylee4@gmail.com">amylee4@gmail.com</a>
+        <a href="tel:amylee4@gmail.com">123456 456</a>
       </section>
     </header>
     <main>
-      <section>
-        <h2>Professional</h2>
-        {%- for post in collections.professional -%}
-        <h2>{{ post.data.title }}</h2>
-        {% if post.data.video_id %}
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/{{ post.data.video_id }}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          origin="http://localhost:8080/"
-        ></iframe>
-        {% endif %}
-        <div>
+      <h2 class="main__heading">Professional</h2>
+      {%- for post in collections.professional -%}
+      <section class="section">
+        <header class="section__header">
+          <h2 class="section__title">{{ post.data.title }}</h2>
+        </header>
+        <section class="section__main">
+          <div class="header__col">{{ post.templateContent | safe }}</div>
           <iframe
+            class="header__col"
             src="https://open.spotify.com/embed/playlist/{{ post.data.playlist_id }}"
             width="300"
             height="380"
@@ -47,19 +40,57 @@
             allowtransparency="true"
             allow="encrypted-media"
           ></iframe>
-        </div>
-        <div>{{ post.templateContent }}</div>
-        {%- endfor -%}
+          {% if post.data.video_id %}
+          <iframe
+            class="header__col"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/{{ post.data.video_id }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            origin="http://localhost:8080/"
+          ></iframe>
+          {% else %}
+          <div></div>
+          {% endif %}
+        </section>
       </section>
+      {%- endfor -%}
       <section>
-        <h2>Personal</h2>
+        <h2 class="main__heading">Personal</h2>
         {%- for post in collections.personal -%}
-        <h2>{{ post.data.title }}</h2>
-        {% if post.data.video_id %}
-        <div>{{ post.data.video_id }}</div>
-        {% endif %}
-        <div>{{ post.data.playlist_id }}</div>
-        <div>{{ post.templateContent }}</div>
+        <section class="section">
+          <header class="section__header">
+            <h2 class="section__title">{{ post.data.title }}</h2>
+          </header>
+          <section class="section__main">
+            <div class="header__col">{{ post.templateContent }}</div>
+            <iframe
+              class="header__col"
+              src="https://open.spotify.com/embed/playlist/{{ post.data.playlist_id }}"
+              width="300"
+              height="380"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+            {% if post.data.video_id %}
+            <iframe
+              class="header__col"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/{{ post.data.video_id }}"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              origin="http://localhost:8080/"
+            ></iframe>
+            {% else %}
+            <div></div>
+            {% endif %}
+          </section>
+        </section>
         {%- endfor -%}
       </section>
     </main>
