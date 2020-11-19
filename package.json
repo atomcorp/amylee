@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx @11ty/eleventy --input=src --serve"
+    "start": "npx @11ty/eleventy --input=src --serve",
+    "deploy": "gh-pages -d _site",
+    "predeploy": "npx @11ty/eleventy --input=src --pathprefix=amylee"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "clean-css": "^4.2.3",
+    "gh-pages": "^3.1.0"
+  }
 }

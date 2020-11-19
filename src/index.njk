@@ -9,7 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/index.css" />
+    {% set css %} {% include "index.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
   </head>
   <body>
     <header class="header">
@@ -33,7 +36,9 @@
           <div class="header__col">{{ post.templateContent | safe }}</div>
           <iframe
             class="header__col"
-            src="https://open.spotify.com/embed/playlist/{{ post.data.playlist_id }}"
+            src="https://open.spotify.com/embed/playlist/{{
+              post.data.playlist_id
+            }}"
             width="300"
             height="380"
             frameborder="0"
@@ -65,10 +70,12 @@
             <h2 class="section__title">{{ post.data.title }}</h2>
           </header>
           <section class="section__main">
-            <div class="header__col">{{ post.templateContent }}</div>
+            <div class="header__col">{{ post.templateContent | safe }}</div>
             <iframe
               class="header__col"
-              src="https://open.spotify.com/embed/playlist/{{ post.data.playlist_id }}"
+              src="https://open.spotify.com/embed/playlist/{{
+                post.data.playlist_id
+              }}"
               width="300"
               height="380"
               frameborder="0"

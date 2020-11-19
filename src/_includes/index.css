@@ -14,7 +14,13 @@ html {
   --light-color: rgb(28, 30, 33);
   --dark-background: rgb(24, 25, 26);
   --site-width: 100%;
-  --site-padding: 0 40px;
+  --site-padding: 0 20px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --site-padding: 0 40px;
+  }
 }
 
 body {
@@ -24,7 +30,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 2rem;
   color: var(--light-color);
-  background: linear-gradient(to right, #ece9e6, #ffffff);
+  background: #f5f3f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -110,7 +116,7 @@ main {
 .section__main {
   display: grid;
   gap: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .header__col {
